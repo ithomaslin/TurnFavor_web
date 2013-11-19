@@ -1,0 +1,40 @@
+<nav class="navbar navbar-static navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "turnfavr", root_path, class: "navbar-brand" %>
+    </div>
+
+    <script>
+    $('.navbar-brand').each(function(){
+      var $this = $(this);
+      var sin = $this.html();
+      if (sin.length<1) return;
+      var sout = sin.substring(0, sin.length-1)+'<span class=of>'+sin.charAt(sin.length-1)+'</span>';
+      $this.html(sout);
+    });
+    </script>
+    <style type="text/css">
+    .of{
+      color: #f86552;
+    }
+    .navbar-brand{
+      color: #6e8cfa;
+    }
+    </style>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", about_path %></li> 
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-collapse -->
+</nav>
