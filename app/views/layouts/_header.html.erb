@@ -37,7 +37,7 @@
          <% if user_signed_in? %>
           <li>
             <%= link_to new_post_path do %>
-              <span class="glyphicon glyphicon-plus"></span> Post
+              <span class="glyphicon glyphicon-plus red"></span> <span class="red">Post</span>
             <% end %>
           </li>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
