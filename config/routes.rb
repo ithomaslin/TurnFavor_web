@@ -1,9 +1,14 @@
 Turnfavor::Application.routes.draw do
+  get "users/show"
   resources :posts
 
   devise_for :users
+  get 'users/:id' => 'users#show', as: :user
+
   root "posts#index"
   get "about" => "pages#about"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
