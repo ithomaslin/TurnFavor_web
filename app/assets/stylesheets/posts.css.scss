@@ -14,3 +14,12 @@
 .box img {
 	width:  100%;
 }
+
+#post-box{
+	transition: 0.5s ease-in-out;  
+}
+
+#post-box:hover{
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}

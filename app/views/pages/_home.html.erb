@@ -1,14 +1,8 @@
 <div class="jumbotron center">
-
 	<h1 id="brand-t">turnfav<span class="red">r</span></h1>
-	<style type="text/css">
-	</style>
 	<h3>This website is under construction</h3>
-	<% if user_signed_in? %>
-	<% else %>
 		<p>
 	       <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
 	       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
 	   </p>
-   <% end %>
 </div>

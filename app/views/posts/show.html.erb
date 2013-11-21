@@ -1,15 +1,27 @@
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<%= image_tag @post.image.url(:medium) %>
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<% if @post.user == current_user %>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to posts_path do %>
+	<span class="glyphicon glyphicon-arrow-left"></span>
+	Back
 <% end %>
-<%= link_to 'Back', posts_path %>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+	    <div class="panel panel-default">
+		    <div class="panel-heading center">
+				<p><strong>Title:</strong><%= @post.title %></p>
+				<%= image_tag @post.image.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<p><strong>Description:</strong><%= @post.description %></p>
+				<% if @post.user == current_user %>
+					<%= link_to edit_post_path(@post) do %>
+						<span class="glyphicon glyphicon-edit"></span>
+				        Edit
+				    <% end %>
+				    <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+			            <span class="glyphicon glyphicon-trash"></span>
+			              Delete
+			        <% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
