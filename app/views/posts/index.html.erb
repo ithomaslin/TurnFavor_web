@@ -17,19 +17,21 @@
         <p><strong>Price:</strong> £ <%= post.price %></p>
       </div>
       
-      <div class="panel-footer">
-        <% if post.user == current_user %>
-          <%= link_to edit_post_path(post) do %>
-            <span class="glyphicon glyphicon-edit"></span>
-              Edit
+      <% if user_signed_in? && current_user.id == post.user_id? %>
+        <div class="panel-footer">
+          <% if post.user == current_user %>
+            <%= link_to edit_post_path(post) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+                Edit
+            <% end %>
+            <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+              <span class="glyphicon glyphicon-trash"></span>
+                Delete
+            <% end %>
           <% end %>
-          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }  do %>
-            <span class="glyphicon glyphicon-trash"></span>
-              Delete
-          <% end %>
-        <% end %>
-      </div>
-      
+        </div>
+      <% end %>
+
     </div>
   <% end %>
 </div>
