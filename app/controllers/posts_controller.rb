@@ -7,14 +7,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    respond_to do |format|
-      render :json => @post.to_json(:methods => [:image])
-    end
   end
 
   # GET /posts/new
