@@ -10,4 +10,8 @@ class Post < ActiveRecord::Base
   	def image_url
   		image.url(:medium)
   	end
+
+  	def user_name
+  		user.name
+  	end
 end
